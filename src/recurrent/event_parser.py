@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 import re
 import datetime
 import logging
@@ -9,7 +11,7 @@ except ImportError:
 
 pdt = parsedatetime.Calendar()
 
-from constants import *
+from .constants import *
 
 log = logging.getLogger('recurrent')
 #log.setLevel(logging.DEBUG)

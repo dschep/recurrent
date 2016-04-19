@@ -1,8 +1,11 @@
+from __future__ import absolute_import
+from __future__ import print_function
+
 import unittest
 import datetime
 from dateutil import rrule
 
-from event_parser import RecurringEvent
+from .event_parser import RecurringEvent
 
 NOW = datetime.datetime(2010, 1, 1)
 
@@ -204,9 +207,9 @@ def test_expression(string, expected):
                     self.assertFalse(v)
                 # ensure rrule string can be parsed by dateutil
                 rrule.rrulestr(val)
-        except AssertionError, e:
+        except AssertionError as e:
             if known_failure:
-                print "Expected failure:", expected_params
+                print("Expected failure:", expected_params)
                 return
             raise e
         if known_failure:
@@ -220,5 +223,5 @@ for i, expr in enumerate(expressions):
 
 
 if __name__ == '__main__':
-    print "Dates relative to %s" % NOW
+    print("Dates relative to %s" % NOW)
     unittest.main(verbosity=2)
